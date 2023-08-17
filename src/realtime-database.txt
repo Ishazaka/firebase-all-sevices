@@ -1,0 +1,27 @@
+
+
+import './App.css';
+import {getDatabase , ref, set } from 'firebase/database';
+import {app} from './firebase-config';
+
+const db = getDatabase(app)
+
+function App() {
+
+   const PutData = () => {
+      set(ref(db, 'users/isha'), {
+        name: "isha zak",
+        id: 1,
+        age: 21,
+      })
+   }
+
+  return (
+    <div className="App">
+   <h1> Firebase React Application</h1>
+   <button onClick={PutData}>Save Data</button>
+    </div>
+  );
+}
+
+export default App;
